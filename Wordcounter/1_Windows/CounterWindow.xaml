@@ -1,0 +1,68 @@
+﻿<Window x:Class="Wordcounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wordcounter"
+        mc:Ignorable="d"
+        Title="Wordcounter" Height="401.914" Width="602.871"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="CanMinimize">
+    
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- Menu bar -->
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Actions">
+                    <MenuItem x:Name="muRefresh" Header="_Force Refresh" Click="muRefresh_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        
+        <!-- Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtText" Grid.Column="0" Grid.Row="0" Margin="15, 15, 15, 15" VerticalScrollBarVisibility="Auto" TextOptions.TextHintingMode="Fixed" SpellCheck.IsEnabled="True" TextWrapping="Wrap" AcceptsReturn="True" TextChanged="txtText_TextChanged"/>
+
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Labels -->
+                <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Content="Amount of words:"/>
+                <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Content="Amount of characters:"/>
+                <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Content="Amount of lines:"/>
+
+                <!-- Content -->
+                <Label x:Name="lblWords" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"/>
+                <Label x:Name="lblCharacters" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
+                <Label x:Name="lblLines" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
